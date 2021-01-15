@@ -33,7 +33,7 @@ class DataFrameGroupBy:
         for key, df in tuples:
             res = func(df, *args, **kwargs)
             results.append(res)
-            mutated.append(not pd.core.groupby.ops._is_indexed_like(res, df.axes))
+            mutated.append(not pd.core.groupby.ops._is_indexed_like(res, df.axes,0))
             keys.append(key)
 
         return zip(keys, results, mutated)
